@@ -7,7 +7,7 @@
   <p id="notice"></p>
   <h2>Book detail</h2>
   <table class="table">
-    <tboy>
+    <tbody>
       <tr>
         <td>
           <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg",size:"40x40" %>
@@ -19,12 +19,11 @@
         <td>コメント件数:<%= @book.book_comments.count %></td>
 
         <% if @user.id == current_user.id %>
-          <td><%=link_to "Edit", edit_book_path, class:"btn btn-sm btn-success" %></td>
+          <td><%=link_to "Edit", edit_book_path(@book.id), class:"btn btn-sm btn-success" %></td>
           <td><%=link_to "Destroy", book_path(@book.id), method: :delete, class:"btn btn-sm btn-danger", data: { confirm: '本当に消しますか？' }  %></td>
         <% end %>
       </tr>
-
-    </tboy>
+    </tbody>
   </table>
   <%= render "book_comments/comment", book: @book, user: @user, book_comment: @book_comment %>
 </div>

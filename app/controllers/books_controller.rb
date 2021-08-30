@@ -45,7 +45,6 @@ class BooksController < ApplicationController
      redirect_to book_path(@book.id),  notice: 'You have update book successfully.'
     else
       render :edit
-
     end
   end
 
